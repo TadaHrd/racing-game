@@ -14,7 +14,7 @@ export var          max_rpm = 1500
 export var       back_speed = 0.75
 export var           torque = 200
 export var brake_multiplier = 3
-export var        max_steer = 0.4 #0-1
+export var        max_steer = 0.3 #0-1
 export var     brake_amount = 4
 export var       cam_smooth = 0.1
 
@@ -29,7 +29,7 @@ var right_left = 0
 func _ready():
 	engineSound.playing = true
 
-func _input(event):
+func _input(_event):
 	if Input.is_action_pressed("lock_rpm"):
 		_on_Lock_button_down()
 
@@ -42,6 +42,7 @@ func _physics_process(_delta):
 	back = max(Input.get_action_strength("back"), $Controls/Back.pressed as int)
 	forw = max(Input.get_action_strength("forward"), $Controls/Forw.pressed as int)
 	var brake = Input.get_action_strength("brake") * brake_amount;
+	print(Input.is_action_just_pressed("brake"))
 	
 	
 	if back == 1 && forw == 1:
@@ -129,6 +130,14 @@ func control_camera():
 func dont_fall():
 	if transform.origin.y <= -1:
 		transform.origin = Vector3.UP
+	if abs(rotation_degrees.x) >= 160 || abs(rotation_degrees.z) >= 160:
+		rotation_degrees.x = 0
+		rotation_degrees.z = 0
+		
+		angular_velocity.x = 0
+		angular_velocity.z = 0
+		
+		transform.origin.y = 1
 
 func player_name():
 	nametag.text = car.name
