@@ -27,7 +27,7 @@ uv1_triplanar = true
 
 [sub_resource type="PlaneMesh" id=11]
 material = SubResource( 10 )
-size = Vector2( 1000, 1000 )
+size = Vector2( 250, 250 )
 
 [sub_resource type="ConvexPolygonShape" id=12]
 points = PoolVector3Array( -500, 0, -500, -500, 0, 500, 500, 0, -500, 500, 0, 500 )
@@ -120,14 +120,93 @@ environment = SubResource( 4 )
 [node name="Player1" parent="WorldEnvironment" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.91847, 0 )
 
-[node name="ground" type="MeshInstance" parent="WorldEnvironment"]
+[node name="ground" type="Spatial" parent="WorldEnvironment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -375, 0, -375 )
+
+[node name="ground" type="MeshInstance" parent="WorldEnvironment/ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 750, 0, 750 )
 mesh = SubResource( 11 )
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody" type="StaticBody" parent="WorldEnvironment/ground"]
+[node name="StaticBody" type="StaticBody" parent="WorldEnvironment/ground/ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -375, 0, -375 )
 
-[node name="CollisionShape" type="CollisionShape" parent="WorldEnvironment/ground/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="WorldEnvironment/ground/ground/StaticBody"]
 shape = SubResource( 12 )
+
+[node name="ground2" type="MeshInstance" parent="WorldEnvironment/ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 750, 0, 500 )
+mesh = SubResource( 11 )
+skeleton = NodePath("../../..")
+
+[node name="ground3" type="MeshInstance" parent="WorldEnvironment/ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 750, 0, 250 )
+mesh = SubResource( 11 )
+skeleton = NodePath("../../..")
+
+[node name="ground4" type="MeshInstance" parent="WorldEnvironment/ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 750, 0, 0 )
+mesh = SubResource( 11 )
+skeleton = NodePath("../../..")
+
+[node name="ground5" type="MeshInstance" parent="WorldEnvironment/ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 0, 750 )
+mesh = SubResource( 11 )
+skeleton = NodePath("../../..")
+
+[node name="ground6" type="MeshInstance" parent="WorldEnvironment/ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 0, 500 )
+mesh = SubResource( 11 )
+skeleton = NodePath("../../..")
+
+[node name="ground7" type="MeshInstance" parent="WorldEnvironment/ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 0, 250 )
+mesh = SubResource( 11 )
+skeleton = NodePath("../../..")
+
+[node name="ground8" type="MeshInstance" parent="WorldEnvironment/ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 0, 0 )
+mesh = SubResource( 11 )
+skeleton = NodePath("../../..")
+
+[node name="ground9" type="MeshInstance" parent="WorldEnvironment/ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 0, 750 )
+mesh = SubResource( 11 )
+skeleton = NodePath("../../..")
+
+[node name="ground10" type="MeshInstance" parent="WorldEnvironment/ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 0, 500 )
+mesh = SubResource( 11 )
+skeleton = NodePath("../../..")
+
+[node name="ground11" type="MeshInstance" parent="WorldEnvironment/ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 0, 250 )
+mesh = SubResource( 11 )
+skeleton = NodePath("../../..")
+
+[node name="ground12" type="MeshInstance" parent="WorldEnvironment/ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 0, 0 )
+mesh = SubResource( 11 )
+skeleton = NodePath("../../..")
+
+[node name="ground13" type="MeshInstance" parent="WorldEnvironment/ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 750 )
+mesh = SubResource( 11 )
+skeleton = NodePath("../../..")
+
+[node name="ground14" type="MeshInstance" parent="WorldEnvironment/ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 500 )
+mesh = SubResource( 11 )
+skeleton = NodePath("../../..")
+
+[node name="ground15" type="MeshInstance" parent="WorldEnvironment/ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 250 )
+mesh = SubResource( 11 )
+skeleton = NodePath("../../..")
+
+[node name="ground16" type="MeshInstance" parent="WorldEnvironment/ground"]
+mesh = SubResource( 11 )
+skeleton = NodePath("../../..")
 
 [node name="objects" type="Spatial" parent="WorldEnvironment"]
 
